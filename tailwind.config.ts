@@ -11,8 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'cgreen': '#86A788',
       },
     },
   },
+  darkMode: "class",
   plugins: [],
 } satisfies Config;
