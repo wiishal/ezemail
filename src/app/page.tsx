@@ -1,7 +1,8 @@
-'use client'
+"use client"
+import { useUser } from "@auth0/nextjs-auth0/client";
 import { Luckiest_Guy, Audiowide } from "next/font/google";
+import Link from "next/link";
 import Images from "next/image";
-
 
 const luckiest_Guy = Luckiest_Guy({
   subsets: ["latin"],
@@ -10,10 +11,13 @@ const luckiest_Guy = Luckiest_Guy({
 });
 
 const audiowidefont = Audiowide({
-  subsets:["latin"],
-  weight:"400"});
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default function Home() {
+  const { user } = useUser();
+  console.log(user);
 
   return (
     <div
@@ -27,33 +31,51 @@ export default function Home() {
             EzEmail
           </p>
         </div>
-        <div className="flex justify-center items-center border  text-black p-2 m-5 h-3/6">
+        <div className="flex justify-center items-center border  text-white p-2 m-5 h-3/6">
           <p
             className={`text-5xl text-center text-neutral-600 ${audiowidefont.className}`}
           >
             Only Email Tool You'll Ever Need: Create, Learn, Succeed!
           </p>
         </div>
-        <div className="border p-2 m-5 text-neutral-200 flex gap-10 justify-center items-stretch">
-          <button className="flex flex-row gap-2 bg-cgreen px-6 py-2 rounded-xl font-semibold">
-            Generate
-            <Images
-              src="/assets/right-arrow.png"
-              alt="logo"
-              width={25}
-              height={50}
-            />
-          </button>
-          <button className="flex flex-row gap-2 bg-cgreen px-6 py-2 rounded-xl font-semibold">
-            Learn
-            <Images
-              src="/assets/right-arrow.png"
-              alt="logo"
-              width={25}
-              height={50}
-            />
-          </button>
+        <div className="border p-2 m-5 text-neutral-200 flex gap-10 justify-center items-center">
+          <Link href="/generate">
+            <button className="flex flex-row gap-2 bg-cgreen px-6 py-2 border rounded-xl font-semibold hover:bg-white hover:text-black hover:border-black">
+              Generate
+              <Images
+                src="/assets/right-arrow.png"
+                alt="logo"
+                width={25}
+                height={50}
+              />
+            </button>
+          </Link>
+          <Link href="/learn">
+            <button className="flex flex-row gap-2 bg-cgreen px-6 py-2 border rounded-xl font-semibold hover:bg-white hover:text-black hover:border-black">
+              Learn
+              <Images
+                src="/assets/right-arrow.png"
+                alt="logo"
+                width={25}
+                height={50}
+              />
+            </button>
+          </Link>
         </div>
+        {!user ? (
+          <div className="flex justify-center items-center">
+            <a
+              href="/api/auth/login"
+              className=" px-6 py-2 w-fit text-white bg-black rounded-xl border font-semibold hover:bg-slate-200 hover:border-black hover:text-black"
+            >
+              login
+            </a>
+          </div>
+        ) : (
+          <div className="flex justify-center items-center">
+            <p className="text-black">Hi! {user.name}</p>
+          </div>
+        )}
       </div>
     </div>
   );
