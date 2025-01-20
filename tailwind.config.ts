@@ -11,7 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        'cgreen': '#86A788',
+        cgreen: "#86A788",
+      },
+      fontFamily: {
+        luckyguy: ["var(--font-luckiest-guy)"],
       },
     },
   },
