@@ -21,7 +21,7 @@ function LearnPage(): JSX.Element {
   } else {
     router.push("/api/auth/login");
   }
-  return <div></div>;
+  return <div>isLoading</div>;
 }
 
 export default LearnPage;
