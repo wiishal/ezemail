@@ -1,14 +1,10 @@
 "use client"
 import { useUser } from "@auth0/nextjs-auth0/client";
-import { Luckiest_Guy, Audiowide } from "next/font/google";
+import { Audiowide } from "next/font/google";
 import Link from "next/link";
 import Images from "next/image";
 
-const luckiest_Guy = Luckiest_Guy({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-luckiest-guy",
-});
+
 
 const audiowidefont = Audiowide({
   subsets: ["latin"],
@@ -21,12 +17,12 @@ export default function Home() {
 
   return (
     <div
-      className={`flex align-middle bg-neutral-200 justify-center items-top w-full h-screen `}
+      className={`flex font- align-middle bg-neutral-200 justify-center items-top w-full h-screen `}
     >
       <div className="flex flex-col border justify-normal w-4/6 ">
         <div className="border p-2 m-5">
           <p
-            className={`${luckiest_Guy.className} text-3xl text-pink-400 text-center`}
+            className={`font-luckyguy text-3xl text-pink-400 text-center`}
           >
             EzEmail
           </p>
