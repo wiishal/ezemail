@@ -1,8 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { UserResponse, ApiResponse } from "../types/type.user";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
 export async function call(
   prompt: string
 ): Promise<{ success: boolean; data?: ApiResponse; error?: unknown }> {
