@@ -8,7 +8,7 @@ export async function call(
 ): Promise<{ success: boolean; data?: ApiResponse; error?: unknown }> {
   try {
     const responce: AxiosResponse<UserResponse> = await axios.post(
-      `${API_URL}/api/user`,
+      `/api/user`,
       {
         prompt,
       }
