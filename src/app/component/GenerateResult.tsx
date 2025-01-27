@@ -1,13 +1,15 @@
-import { JSX } from "react";
+import { Dispatch, JSX, SetStateAction, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import RenderGeneratedResult from "./RenderGeneratedResult";
 
 export default function GenerateResult({
   results,
+  setIsgenerating,
 }: generateResultProps): JSX.Element {
   console.log(results.length);
+
   return (
-    <div className=" border-blue-900 overflow-y-auto font-mono h-full w-4/6 p-3 gap-3 text-sm max-h-full scrollbar-thin scrollbar-thumb-blue-900 scrollbar-white-red-900">
+    <div className="  overflow-y-auto font-mono h-full w-4/6 p-3 gap-3 text-sm max-h-full scrollbar-thin scrollbar-track-pink-400 scrollbar-thumb-white">
       {results.length === 0 ? (
         <div>
           {" "}
@@ -16,22 +18,19 @@ export default function GenerateResult({
               typewriter
                 .changeDelay(25)
                 .typeString("Enter Context TO generate")
-                .callFunction(() => {
-                  console.log("String typed out!");
-                })
                 .pauseFor(2500)
-                .callFunction(() => {
-                  console.log("All strings were deleted");
-                })
                 .start();
             }}
           />
         </div>
       ) : (
-        <div className=" h-fit scrollbar-thin scrollbar-thumb-blue-900 scrollbar-white-red-900">
+        <div className=" h-fit ">
           {results.map((item, index) => (
-            <div key={index} className="p-3 m-3  border-pink-600">
-              <RenderGeneratedResult str={item}></RenderGeneratedResult>
+            <div key={index} className="p-3 m-3 rounded-xl  border-pink-600">
+              <RenderGeneratedResult
+                str={item}
+                setIsgenerating={setIsgenerating}
+              />{" "}
             </div>
           ))}
         </div>
@@ -42,4 +41,5 @@ export default function GenerateResult({
 
 interface generateResultProps {
   results: string[];
+  setIsgenerating: Dispatch<SetStateAction<boolean>>;
 }

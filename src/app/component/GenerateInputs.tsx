@@ -7,6 +7,8 @@ import { call } from "../services/userService";
 
 export default function GenerateInputs({
   setResults,
+  setIsgenerating,
+  isGenerating,
 }: GenerateInputsProps): JSX.Element {
   const [inputs, setInputs] = useState<generateInputs>({
     from: "",
@@ -25,18 +27,17 @@ export default function GenerateInputs({
   }
 
   async function pushInputs() {
+    setIsgenerating(true);
     const inputsStates = checkInputs();
     if (inputsStates === false) return;
 
     let prompt = geneatePrompt(inputs);
-    let getResult = await call(
-      prompt
-    );
+    let getResult = await call(prompt);
 
     console.log(getResult);
     if (getResult.success) {
-      setResults((prev) => ([...prev, getResult.data.message]));
-      return
+      setResults((prev) => [...prev, getResult.data.message]);
+      return;
     }
   }
 
@@ -90,12 +91,14 @@ export default function GenerateInputs({
         ></textarea>
       </div>
       <div className="flex items-end justify-start m-3 w-full ">
-        <button
-          onClick={pushInputs}
-          className="bg-blue-700 py-2 px-4 w-fit rounded-2xl"
-        >
-          Generate
-        </button>
+        {!isGenerating && (
+          <button
+            onClick={pushInputs}
+            className="bg-blue-700 py-2 px-4 w-fit rounded-2xl"
+          >
+            Generate
+          </button>
+        )}
       </div>
     </div>
   );
@@ -103,4 +106,6 @@ export default function GenerateInputs({
 
 interface GenerateInputsProps {
   setResults: Dispatch<SetStateAction<string[]>>;
+  setIsgenerating: Dispatch<SetStateAction<boolean>>;
+  isGenerating: boolean;
 }

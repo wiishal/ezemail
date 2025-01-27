@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Luckiest_Guy } from "next/font/google";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 import "./globals.css";
@@ -13,10 +13,15 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+const luckiest_Guy = Luckiest_Guy({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-luckiest-guy",
+});
 
 export const metadata: Metadata = {
   title: "EZEmail",
-  description: "Generate Email with Proffetional tone",
+  description: "Generate Email/learn with Proffetional tone",
 };
 
 export default function RootLayout({
@@ -26,14 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+ 
       <UserProvider>
-
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        <body
+          className={`${geistSans.variable} ${luckiest_Guy.variable} ${geistMono.variable} antialiased`}
         >
-        {children}
-      </body>
-        </UserProvider>
+          {children}
+        </body>
+      </UserProvider>
     </html>
   );
 }
