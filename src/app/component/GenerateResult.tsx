@@ -1,4 +1,4 @@
-import { Dispatch, JSX, SetStateAction, useEffect } from "react";
+import { Dispatch, JSX, SetStateAction } from "react";
 import Typewriter from "typewriter-effect";
 import RenderGeneratedResult from "./RenderGeneratedResult";
 

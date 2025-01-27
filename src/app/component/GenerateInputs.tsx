@@ -1,7 +1,7 @@
 "use client";
 import { Dispatch, JSX, SetStateAction } from "react";
 import { ChangeEvent, useState } from "react";
-import { generateInputs } from "@/app/types/type.user";
+import { BaseInputs } from "@/app/types/type.user";
 import { geneatePrompt } from "../util/prompt";
 import { call } from "../services/userService";
 
@@ -10,7 +10,7 @@ export default function GenerateInputs({
   setIsgenerating,
   isGenerating,
 }: GenerateInputsProps): JSX.Element {
-  const [inputs, setInputs] = useState<generateInputs>({
+  const [inputs, setInputs] = useState<BaseInputs>({
     from: "",
     to: "",
     context: "",
@@ -18,7 +18,7 @@ export default function GenerateInputs({
 
   function handleInputs(
     e: React.ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
-    field: keyof generateInputs
+    field: keyof BaseInputs
   ) {
     setInputs((prevInputs) => ({
       ...prevInputs,
@@ -31,26 +31,33 @@ export default function GenerateInputs({
     const inputsStates = checkInputs();
     if (inputsStates === false) return;
 
-    let prompt = geneatePrompt(inputs);
-    let getResult = await call(prompt);
+    const prompt = geneatePrompt(inputs);
+    const getResult = await call(prompt);
 
     console.log(getResult);
     if (getResult.success) {
-      setResults((prev) => [...prev, getResult.data.message]);
+      if (getResult.data?.message) {
+        setResults((prev) => [
+          ...prev,
+          (getResult.data as { message: string }).message,
+        ]);
+      }
       return;
     }
   }
 
   function checkInputs() {
-    let isInputEmpty: boolean[] = Object.entries(inputs).map(([key, value]) => {
-      if (value == "") {
-        // console.log(`Input ${key} is invalid.`);
-        return false;
-      } else {
-        return true;
+    const isInputEmpty: boolean[] = Object.entries(inputs).map(
+      ([key, value]) => {
+        if (value == "") {
+          console.log(`Input ${key} is invalid.`);
+          return false;
+        } else {
+          return true;
+        }
       }
-    });
-    let result = isInputEmpty.every((value) => value === true);
+    );
+    const result = isInputEmpty.every((value) => value === true);
     return result;
   }
 

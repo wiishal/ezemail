@@ -1,15 +1,20 @@
 import axios, { AxiosResponse } from "axios";
+import { UserResponse, ApiResponse } from "../types/type.user";
 
-export async function call(prompt:string) {
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+export async function call(
+  prompt: string
+): Promise<{ success: boolean; data?: ApiResponse; error?: unknown }> {
   try {
-    const responce: AxiosResponse<any, any> = await axios.post(
-      "http://localhost:3000/api/user",
+    const responce: AxiosResponse<UserResponse> = await axios.post(
+      `${API_URL}/api/user`,
       {
         prompt,
       }
     );
-    return  {success : true , data:responce.data} ;
+    return { success: true, data: responce.data };
   } catch (error) {
-    throw {success : false, error}
+    throw { success: false, error };
   }
 }

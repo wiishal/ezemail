@@ -21,9 +21,7 @@ export default function Home() {
     >
       <div className="flex flex-col border justify-normal w-4/6 ">
         <div className="border p-2 m-5">
-          <p
-            className={`font-luckyguy text-3xl text-pink-400 text-center`}
-          >
+          <p className={`font-luckyguy text-3xl text-pink-400 text-center`}>
             EzEmail
           </p>
         </div>
@@ -31,7 +29,7 @@ export default function Home() {
           <p
             className={`text-5xl text-center text-neutral-600 ${audiowidefont.className}`}
           >
-            Only Email Tool You'll Ever Need: Create, Learn, Succeed!
+            Only Email Tool You&#39;ll Ever Need: Create, Learn, Succeed!
           </p>
         </div>
         <div className="border p-2 m-5 text-neutral-200 flex gap-10 justify-center items-center">
@@ -60,12 +58,12 @@ export default function Home() {
         </div>
         {!user ? (
           <div className="flex justify-center items-center">
-            <a
+            <Link
               href="/api/auth/login"
               className=" px-6 py-2 w-fit text-white bg-black rounded-xl border font-semibold hover:bg-slate-200 hover:border-black hover:text-black"
             >
               login
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="flex justify-center items-center">
