@@ -1,4 +1,4 @@
-import { Dispatch, JSX, SetStateAction } from "react";
+import { Dispatch, JSX, SetStateAction  } from "react";
 import Typewriter from "typewriter-effect";
 import RenderGeneratedResult from "./RenderGeneratedResult";
 
@@ -7,7 +7,7 @@ export default function GenerateResult({
   setIsgenerating,
 }: generateResultProps): JSX.Element {
   console.log(results.length);
-
+ 
   return (
     <div className="  overflow-y-auto font-mono h-full w-4/6 p-3 gap-3 text-sm max-h-full scrollbar-thin scrollbar-track-pink-400 scrollbar-thumb-white">
       {results.length === 0 ? (

@@ -6,7 +6,6 @@ function Learn(): JSX.Element {
 
   return (
     <div className="text-black border border-black w-full">
-
       <h1 className="text-white">{user?.name}</h1>
     </div>
   );

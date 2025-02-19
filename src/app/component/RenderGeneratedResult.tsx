@@ -1,13 +1,16 @@
 
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import Typewriter from "typewriter-effect";
 
 interface RenderProps {
   str: string;
   setIsgenerating:Dispatch<SetStateAction<boolean>>;
 }
-export default function RenderGeneratedResult({ str,setIsgenerating }: RenderProps) {
-
+export default function RenderGeneratedResult({ str,setIsgenerating }:RenderProps) {
+    const chatEndRef = useRef<HTMLDivElement | null>(null);
+    useEffect(() => {
+      chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [str]);
   return (
     <div
       style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}
@@ -22,10 +25,11 @@ export default function RenderGeneratedResult({ str,setIsgenerating }: RenderPro
               .typeString(str)
               .callFunction(() => {
                 console.log("String typed out!");
-                setIsgenerating(false)
-              })
+                setIsgenerating(false);
+              });
           }}
         />
+        <div ref={chatEndRef} />
       </div>
     </div>
   );
