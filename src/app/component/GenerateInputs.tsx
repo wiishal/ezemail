@@ -27,10 +27,10 @@ export default function GenerateInputs({
   }
 
   async function pushInputs() {
-    setIsgenerating(true);
     const inputsStates = checkInputs();
     if (inputsStates === false) return;
-
+    
+    setIsgenerating(true);
     const prompt = geneatePrompt(inputs);
     const getResult = await call(prompt);
 
