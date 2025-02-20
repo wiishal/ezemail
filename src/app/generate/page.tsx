@@ -11,7 +11,6 @@ export default function page(): JSX.Element {
         EZ EMAIL
       </div>
       <div className="h-5/6 w-full ">
-
       <GeneratePage />
       </div>
     </div>
