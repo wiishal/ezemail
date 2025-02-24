@@ -2,8 +2,8 @@
 import { Dispatch, JSX, SetStateAction } from "react";
 import { ChangeEvent, useState } from "react";
 import { BaseInputs } from "@/app/types/type.user";
-import { geneatePrompt } from "../util/prompt";
-import { call } from "../services/userService";
+import { geneatePrompt } from "../../util/prompt";
+import { call } from "../../services/userService";
 
 export default function GenerateInputs({
   setResults,
@@ -29,7 +29,7 @@ export default function GenerateInputs({
   async function pushInputs() {
     const inputsStates = checkInputs();
     if (inputsStates === false) return;
-    
+
     setIsgenerating(true);
     const prompt = geneatePrompt(inputs);
     const getResult = await call(prompt);
@@ -62,7 +62,7 @@ export default function GenerateInputs({
   }
 
   return (
-    <div className="w-2/6 h-full p-3 ">
+    <div className=" lg:w-2/6 w-full h-full p-3 ">
       <div className="flex flex-col gap-3 m-3">
         <label htmlFor="">From</label>
         <input

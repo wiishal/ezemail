@@ -1,17 +1,17 @@
 import { JSX } from "react";
 import { Metadata } from "next";
-import GeneratePage from "../pages/GeneratePage";
+import GeneratePage from "../component/GeneratePage";
 
 export default function page(): JSX.Element {
   return (
     <div
-      className={`flex flex-col align-middle bg-neutral-900 justify-center items-center w-full h-screen`}
+      className={`flex flex-col align-middle bg-black justify-center items-center w-full h-screen`}
     >
-      <div className="font-luckyguy text-3xl text-pink-400  max-h-fit border-red-600">
+      <div className="font-luckyguy text-3xl mb-4 text-pink-400  max-h-fit border-red-600">
         EZ EMAIL
       </div>
       <div className="h-5/6 w-full ">
-      <GeneratePage />
+        <GeneratePage />
       </div>
     </div>
   );

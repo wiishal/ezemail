@@ -1,10 +1,8 @@
-"use client"
+"use client";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { Audiowide } from "next/font/google";
 import Link from "next/link";
 import Images from "next/image";
-
-
 
 const audiowidefont = Audiowide({
   subsets: ["latin"],
@@ -17,7 +15,7 @@ export default function Home() {
 
   return (
     <div
-      className={`flex font- align-middle bg-neutral-200 justify-center items-top w-full h-screen `}
+      className={`flex  align-middle bg-neutral-200 justify-center items-top w-full h-screen `}
     >
       <div className="flex flex-col border justify-normal w-4/6 ">
         <div className="border p-2 m-5">
@@ -27,7 +25,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center items-center border  text-white p-2 m-5 h-3/6">
           <p
-            className={`text-5xl text-center text-neutral-600 ${audiowidefont.className}`}
+            className={`lg:text-5xl text-2xl text-center text-neutral-600 ${audiowidefont.className}`}
           >
             Only Email Tool You&#39;ll Ever Need: Create, Learn, Succeed!
           </p>
@@ -36,23 +34,11 @@ export default function Home() {
           <Link href="/generate">
             <button className="flex flex-row gap-2 bg-cgreen px-6 py-2 border rounded-xl font-semibold hover:bg-white hover:text-black hover:border-black">
               Generate
-              <Images
-                src="/assets/right-arrow.png"
-                alt="logo"
-                width={25}
-                height={50}
-              />
             </button>
           </Link>
           <Link href="/learn">
             <button className="flex flex-row gap-2 bg-cgreen px-6 py-2 border rounded-xl font-semibold hover:bg-white hover:text-black hover:border-black">
               Learn
-              <Images
-                src="/assets/right-arrow.png"
-                alt="logo"
-                width={25}
-                height={50}
-              />
             </button>
           </Link>
         </div>
@@ -70,6 +56,20 @@ export default function Home() {
             <p className="text-black">Hi! {user.name}</p>
           </div>
         )}
+        <div>
+          <a
+            href="https://github.com/wiishal/ezemail"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Images
+              src="/assets/github.png"
+              alt="logo"
+              width={25}
+              height={50}
+            />
+          </a>
+        </div>
       </div>
     </div>
   );

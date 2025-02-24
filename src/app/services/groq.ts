@@ -20,3 +20,23 @@ export async function getGroqChatCompletion(prompt: string) {
     return;
   }
 }
+
+export async function getGroqEmailCtx(EmilCtxPrompt: string) {
+  console.log("processing",EmilCtxPrompt);
+  try {
+    if (EmilCtxPrompt) {
+      return groq.chat.completions.create({
+        messages: [
+          {
+            role: "user",
+            content: EmilCtxPrompt,
+          },
+        ],
+        model: "llama3-8b-8192",
+      });
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
+    return;
+  }
+}

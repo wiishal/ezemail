@@ -2,8 +2,9 @@
 
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/navigation";
-import Learn from "../component/Learn";
+import Learn from "./learnComponents/Learn";
 import { JSX } from "react";
+import LoginAlert from "./LoginAlert";
 
 function LearnPage(): JSX.Element {
   const { user, isLoading } = useUser();
@@ -12,16 +13,13 @@ function LearnPage(): JSX.Element {
 
   if (user) {
     return (
-      <div
-        className={`flex align-middle bg-neutral-900 justify-center items-top w-full h-screen `}
-      >
+      <div className={`flex align-middle bg-neutral-900 justify-center items-top w-full h-screen `}>
         <Learn />
       </div>
     );
   } else {
-    router.push("/api/auth/login");
+    return <LoginAlert />;
   }
-  return <div>isLoading</div>;
 }
 
 export default LearnPage;

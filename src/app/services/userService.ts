@@ -13,6 +13,6 @@ export async function call(
     );
     return { success: true, data: responce.data };
   } catch (error) {
-    throw { success: false, error };
+    return { success: false, error };
   }
 }
