@@ -1,7 +1,6 @@
 "use client";
 
 import { useUser } from "@auth0/nextjs-auth0/client";
-import { useRouter } from "next/navigation";
 import Learn from "./learnComponents/Learn";
 import { JSX } from "react";
 import LoginAlert from "./LoginAlert";

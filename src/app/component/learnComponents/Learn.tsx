@@ -5,7 +5,6 @@ import AskLeaningStage from "./AskLeaningStage";
 import PracticeEmail from "./PracticeEmail";
 
 function Learn(): JSX.Element {
-  const { user } = useUser();
   const [isLoading, setIsLoading] = useState(true);
   const [leaningStage, setLearningStage] = useState<leaningStage | null>(null);
 
