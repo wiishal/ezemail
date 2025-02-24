@@ -8,7 +8,6 @@ export interface emailCtx{
     email:string
 }
 
-export interface emailCtxApiCallResponce {}
 
 interface Evaluation {
   criteria: string;

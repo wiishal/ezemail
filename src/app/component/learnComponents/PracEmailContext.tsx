@@ -1,5 +1,5 @@
 import { emailContextCall } from "@/app/services/email.Services";
-import { emailCtx, leaningStage } from "@/app/types/type.email";
+import { emailCtx } from "@/app/types/type.email";
 import { emailCtxPrompt } from "@/app/util/prompt";
 import { Dispatch, JSX, SetStateAction, useState } from "react";
 import RenderEmailCtx from "./RenderEmailCtx";

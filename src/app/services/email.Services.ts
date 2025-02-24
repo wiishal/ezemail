@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from "axios";
 import { ApiResponse } from "../types/type.user";
-import { error } from "console";
 
 
 export async function emailContextCall(

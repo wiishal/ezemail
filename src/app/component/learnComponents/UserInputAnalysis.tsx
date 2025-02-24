@@ -1,5 +1,5 @@
 import { AnalysisState } from "@/app/types/type.email";
-import { JSX, useState } from "react";
+import { JSX } from "react";
 
 export default function UserInputAnalysis({
   analysis,

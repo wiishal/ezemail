@@ -1,4 +1,4 @@
-import { Dispatch, JSX, SetStateAction, useState } from "react";
+import { Dispatch, JSX, SetStateAction } from "react";
 
 export default function UserInputWrite({
   content,
