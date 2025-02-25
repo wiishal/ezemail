@@ -39,17 +39,18 @@ Platform for Generating and Learning email writing built using Next.js, designed
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📡 API Routes  
-This project includes API routes under `/pages/api/`. Example:  
+This project includes API routes under `/api`. Example:  
 - **`GET /api/hello`** – Returns a simple JSON response.  
 
 ## 🏗️ Project Structure  
 ```
-/pages        # Next.js pages (routes)  
+/api          # API routes directory 
 /components   # Reusable UI components 
+/generate     # generate page
+/learn        # learn page 
 /type         # types
 /services     # handle data fetching, API interactions
-/public       # Static assets  
-/utils        # Helper functions  
+/util         # Helper functions  
 ```
 
 ## 🚀 Deployment  
