@@ -13,6 +13,10 @@ export default function UserInputWrite({
 }): JSX.Element {
 
   function handleFinish(userinputs: string) {
+    if(userinputs === ""){
+      alert("Provide your writings!!")
+      return
+    }
     getAnalysis(userinputs);
     changeStage(Stage.Analysis);
   }
