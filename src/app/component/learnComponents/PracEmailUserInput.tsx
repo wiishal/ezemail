@@ -5,6 +5,7 @@ import UserInputAnalysis from "./UserInputAnalysis";
 import { AnalysisState, emailCtx } from "@/app/types/type.email";
 import { analysisCtxPrompt } from "@/app/util/prompt";
 import { getAnalysisResult } from "@/app/services/email.Services";
+import Link from "next/link";
 
 export default function PracEmailUserInput({email}: { email: emailCtx }): JSX.Element {
   const [stage, setStage] = useState<Stage>(Stage.Write);
@@ -36,7 +37,7 @@ export default function PracEmailUserInput({email}: { email: emailCtx }): JSX.El
   }
   return (
     <div className="flex flex-col w-1/2 lg:w-1/2  m-3 gap-2 ">
-      <div className="flex flex-row ">
+      <div className="flex flex-row justify-between ">
         <ul className="flex flex-row gap-2 font-thin">
           <li
             onClick={() => changeStage(Stage.Write)}
@@ -51,6 +52,12 @@ export default function PracEmailUserInput({email}: { email: emailCtx }): JSX.El
             Analysis
           </li>
         </ul>
+        <Link
+          href="/api/auth/logout"
+          className="rounded-md text-center bg-neutral-100 py-2 px-4 text-sm text-black font-medium"
+        >
+          Log out
+        </Link>
       </div>
 
       {stage === Stage.Write && (

@@ -7,7 +7,9 @@ import LoginAlert from "./LoginAlert";
 
 function LearnPage(): JSX.Element {
   const { user, isLoading } = useUser();
-  if (isLoading) return <div> isLoading</div>;
+
+  
+  if (isLoading) return <div> Loading...</div>;
 
   if (user) {
     return (

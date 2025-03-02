@@ -11,5 +11,5 @@ export default function LoginAlert(): JSX.Element {
           login
         </Link>
       </div>
-    );
+    ); 
 }

@@ -7,8 +7,9 @@ export default function page(): JSX.Element {
     <div
       className={`flex flex-col align-middle bg-black justify-center items-center w-full h-screen`}
     >
-      <div className="font-luckyguy text-3xl text-pink-400 border border-black m-5">
+      <div className="flex items-center w-2/3 justify-center font-luckyguy text-3xl text-pink-400 border border-black m-5">
         EZ EMAIL
+        
       </div>
       <LearnPage />
     </div>

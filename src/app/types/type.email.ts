@@ -8,7 +8,6 @@ export interface emailCtx{
     email:string
 }
 
-
 interface Evaluation {
   criteria: string;
   rating: number;

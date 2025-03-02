@@ -3,6 +3,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { Audiowide } from "next/font/google";
 import Link from "next/link";
 import Images from "next/image";
+import { useState } from "react";
 
 const audiowidefont = Audiowide({
   subsets: ["latin"],
@@ -11,8 +12,7 @@ const audiowidefont = Audiowide({
 
 export default function Home() {
   const { user } = useUser();
-  console.log(user);
-
+  const [isRedirecting, setIsRedirecting] = useState({generate:false,learn:false});
   return (
     <div
       className={`flex  align-middle bg-neutral-200 justify-center items-top w-full h-screen `}
@@ -32,13 +32,23 @@ export default function Home() {
         </div>
         <div className="border p-2 m-5 text-neutral-200 flex gap-10 justify-center items-center">
           <Link href="/generate">
-            <button className="flex flex-row gap-2 bg-cgreen px-6 py-2 border rounded-xl font-semibold hover:bg-white hover:text-black hover:border-black">
-              Generate
+            <button
+              onClick={() =>
+                setIsRedirecting((prev) => ({ ...prev, generate: true }))
+              }
+              className="flex flex-row gap-2 bg-cgreen px-6 py-2 border rounded-xl font-semibold hover:bg-white hover:text-black hover:border-black"
+            >
+              {isRedirecting.generate ? "loading..." : "Generate"}
             </button>
           </Link>
           <Link href="/learn">
-            <button className="flex flex-row gap-2 bg-cgreen px-6 py-2 border rounded-xl font-semibold hover:bg-white hover:text-black hover:border-black">
-              Learn
+            <button
+              onClick={() =>
+                setIsRedirecting((prev) => ({ ...prev, learn: true }))
+              }
+              className="flex flex-row gap-2 bg-cgreen px-6 py-2 border rounded-xl font-semibold hover:bg-white hover:text-black hover:border-black"
+            >
+              {isRedirecting.learn ? "loading..." : "Learn"}
             </button>
           </Link>
         </div>
