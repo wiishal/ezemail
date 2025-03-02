@@ -24,7 +24,6 @@ export default function PracEmailUserInput({email}: { email: emailCtx }): JSX.El
       alert("there is no emailCtx")
       return
     }
-    console.log(email.key," userinputs : ")
     const prompt = analysisCtxPrompt({ scenario:emailCtx.email,userInput:userinputs });
     const res = await getAnalysisResult(prompt);
     const parsedResponse = JSON.parse(res.data.message);
