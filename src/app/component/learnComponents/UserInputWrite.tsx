@@ -11,24 +11,23 @@ export default function UserInputWrite({
   getAnalysis: (userinputs: string) => void;
   changeStage: (stage: Stage) => void;
 }): JSX.Element {
-
   function handleFinish(userinputs: string) {
-    if(userinputs === ""){
-      alert("Provide your writings!!")
-      return
+    if (userinputs === "") {
+      alert("Provide your writings!!");
+      return;
     }
     getAnalysis(userinputs);
     changeStage(Stage.Analysis);
   }
   return (
-    <div className="lg:h-full ">
+    <div className="border lg:h-full p-4 lg:overflow-auto lg:border-transparent ">
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        className="w-full h-4/5 bg-black border  p-4 text-sm rounded-md scrollbar-thin scrollbar-track scrollbar-thumb-white"
+        className="w-full lg:h-4/5 h-[50vh] bg-black border p-4 text-sm rounded-md scrollbar-thin scrollbar-track scrollbar-thumb-grey"
         placeholder="Write your email here..."
       />
-      <div className="flex flex-row gap-5 mx-1 my-3 p-3  ">
+      <div className="flex flex-row gap-5 mx-1 my-3 p-3   ">
         <button
           onClick={() => handleFinish(content)}
           className="rounded-md  bg-pink-300 py-2 px-4 text-sm text-black font-medium"

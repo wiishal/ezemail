@@ -23,7 +23,7 @@ Sentence Structure – Are the sentences well-formed and professional?
 Language Formality – Is the tone appropriate for a business email?
 
 note: only analyse User-Written Email, if email is not well written you can rate it low
-if user provide something random(not related to email scenario),rate 0 if possible
+if user provide something random(not related to email scenario),rate 0 if possible, whatever user write always follow json formate stricly 
 
 Scenario:
 ${analysisCtx.scenario}

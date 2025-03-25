@@ -35,18 +35,18 @@ export default function PracEmailUserInput({email}: { email: emailCtx }): JSX.El
     setStage(stage);
   }
   return (
-    <div className="flex flex-col w-1/2 lg:w-1/2  m-3 gap-2 ">
+    <div className="flex flex-col w-full lg:w-1/2 lg:p-2 gap-2 border lg:border-l-blue-700 border-transparent  pt-5">
       <div className="flex flex-row justify-between ">
-        <ul className="flex flex-row gap-2 font-thin">
+        <ul className="flex flex-row gap-2 font-thin lg:ml-3">
           <li
             onClick={() => changeStage(Stage.Write)}
-            className="border py-2 px-3 cursor-pointer rounded-md"
+            className=" py-2 px-3 cursor-pointer rounded-md bg-neutral-700"
           >
             Write
           </li>
           <li
             onClick={() => changeStage(Stage.Analysis)}
-            className="border py-2 px-3 cursor-pointer rounded-md"
+            className="py-2 px-3 cursor-pointer rounded-md bg-neutral-700"
           >
             Analysis
           </li>

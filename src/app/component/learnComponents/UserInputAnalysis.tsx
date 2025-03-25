@@ -10,8 +10,8 @@ export default function UserInputAnalysis({
  
 
   return (
-    <div className="h-full overflow-auto">
-      <div className="h-fit border border-transparent border-b-white p-4">
+    <div className="h-[50vh] lg:h-full lg:overflow-auto ">
+      <div className="lg:h-fit h-[50vh] border border-transparent border-b-white lg:p-4">
         <h2 className="text-lg font-semibold mb-2">Email Analysis</h2>
         <p className="text-white font-thin">
           {analysis?.improvements || "No content provided."}

@@ -29,13 +29,13 @@ export default function PracEmailContext({
     }
   }
   return (
-    <div className="lg:w-1/2 w-full  p-6  border-r-neutral-700 gap-3 h-full  ">
-      <div className=" flex flex-col lg:h-5/6 h-fit  p-4 overflow-auto">
+    <div className=" lg:w-1/2 w-full border-r-neutral-700 gap-3 lg:h-full overflow-auto ">
+      <div className=" flex flex-col lg:h-5/6 h-fit bg-neutral-900  overflow-auto">
         <RenderEmailCtx currEmail={currEmail} />
       </div>
       <div className="mx-4 p-3  ">
         <button
-          className="rounded-md ml-6 bg-neutral-100 py-2 px-4 text-sm text-black font-medium"
+          className="rounded-md ml-2 bg-neutral-100 py-2 px-4 text-sm text-black font-medium"
           onClick={generateEmailCntx}
         >
           {currEmail ? "Next" : "Start"}

@@ -23,9 +23,7 @@ function Learn(): JSX.Element {
   if (leaningStage === null) return <AskLeaningStage setLearningStage={setLearningStage} />;
   
      return (
-   <div className="flex items-center justify-center border border-black text-white w-full">
       <PracticeEmail/>
-    </div>
   );
 }
 
